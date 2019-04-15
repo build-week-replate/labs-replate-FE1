@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 
-const VolunteerNav = props => {
+const VolunteerNav = () => {
 
     return (
         <div>
-            <NavLink exact to='/'>
+            {/* <NavLink exact to='/'>
                 Dashboard
             </NavLink>
             <NavLink exact to='/available-pickups'>
                 Available Pickups
-            </NavLink>
+            </NavLink> */}
         </div>
     )
 

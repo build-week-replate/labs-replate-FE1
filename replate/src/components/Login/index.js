@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { login } from '../actions'
+import { login } from '../../actions'
 
 class Login extends React.Component {
     state = {
@@ -23,6 +23,7 @@ class Login extends React.Component {
     login = event => {
         event.preventDefault()
         this.props.login(this.state.credentials)
+        //needs logic to determine which dashboard to show, volunteer or business
         .then(() => {
             this.props.history.push('/protected')
         })
