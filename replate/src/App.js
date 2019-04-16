@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
 import './App.css';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-// import VolunteerDashboard from './components/Volunteers'
+import VolunteerDashboard from './components/Volunteers'
 import Login from './components/Login'
+import Register from './components/Register'
 
 class App extends Component {
   render() {
@@ -11,7 +13,9 @@ class App extends Component {
       <div className="App">
       <div>
         <h1>My app</h1>
+        <Register />
         <Login />
+        <VolunteerDashboard />
       </div>
         
       </div>

@@ -1,7 +1,21 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import { login } from '../../actions'
+import styled from 'styled-components'
+
+const LoginDiv = styled.div`
+    diplay: flex;
+    background-color: #006837;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 5px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+`
 
 class Login extends React.Component {
     state = {
@@ -31,7 +45,11 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
+            <LoginDiv>
+                <div>
+                <div>
+
+                </div>
                 <form onSubmit={this.login}>
                     <input
                         type='text'
@@ -53,17 +71,12 @@ class Login extends React.Component {
                         )}
                     </button>
                 </form>
-            </div>
+                <p>Not registered? Signup Now!</p>
+                </div>
+                
+            </LoginDiv>
         )
     }
 }
 
-const mapStateToProps = ({ loggingIn, error }) => ({
-    error,
-    loggingIn
-})
-
-export default connect(
-    mapStateToProps,
-    { login }
-)(Login)
+export default Login
