@@ -1,5 +1,7 @@
 import React from 'react'
 
+import VolunteerReg from './VolunteerReg'
+
 // import styled from 'styled-components'
 
 
@@ -11,7 +13,7 @@ const Register = props => {
             </div>
             <div>
                 <div>
-                    <p>Volunteer Signup</p>
+                    <VolunteerReg />
                 </div>
                 <div>
                     <p>Business Signup</p>
