@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
 import './App.css';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import VolunteerDashboard from './components/Volunteers'
 import Login from './components/Login'
 import Register from './components/Register'
-
 
 
 class App extends Component {
@@ -17,7 +16,7 @@ class App extends Component {
       <div>
         <h1>My app</h1>
         <Register />
-        <Login />
+        <Route path='/login' component={Login} />
         <VolunteerDashboard />
       </div>
         

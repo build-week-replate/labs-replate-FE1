@@ -30,7 +30,7 @@ class Login extends React.Component {
 
     handleChanges = event => {
         this.setState({
-            [event.target.name]: [event.target.value]
+            [event.target.name]: event.target.value
         })
     }
 
@@ -39,13 +39,14 @@ class Login extends React.Component {
         const user = {
             email: this.state.email,
             password: this.state.password
-        }      
+        }    
+        console.log(user)  
         axios
         .post('https://replate-backend-turcan.herokuapp.com/api/users/login', user)
         .then(res => {
-            const token = res.data
-            console.log(token)
-            localStorage.setItem('token', token)
+            const token = res.data.token
+            console.log(res)
+            localStorage.setItem('token', JSON.stringify(token))
             this.props.refresh()
         })
         .catch(err => console.log(err))
