@@ -1,5 +1,7 @@
 import React from 'react'
 
+import axios from 'axios'
+
 import styled from 'styled-components'
 
 const LoginDiv = styled.div`
@@ -18,32 +20,39 @@ const LoginDiv = styled.div`
 `
 
 class Login extends React.Component {
-    state = {
-        credentials: {
-            username: '',
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: '',
             password: ''
         }
     }
 
     handleChanges = event => {
         this.setState({
-            credentials: {
-                ...this.state.credentials,
-                [event.target.name]: event.target.value
-            }
+            [event.target.name]: [event.target.value]
         })
     }
 
     login = event => {
-        event.preventDefault()
-        this.props.login(this.state.credentials)
-        //needs logic to determine which dashboard to show, volunteer or business
-        .then(() => {
-            this.props.history.push('/protected')
+        event.preventDefault()  
+        const user = {
+            email: this.state.email,
+            password: this.state.password
+        }      
+        axios
+        .post('https://replate-backend-turcan.herokuapp.com/api/users/login', user)
+        .then(res => {
+            const token = res.data
+            console.log(token)
+            localStorage.setItem('token', token)
+            this.props.refresh()
         })
+        .catch(err => console.log(err))
     }
 
     render() {
+        const { email, password } = this.state
         return (
             <LoginDiv>
                 <div>
@@ -53,18 +62,18 @@ class Login extends React.Component {
                 <form onSubmit={this.login}>
                     <input
                         type='text'
-                        name='username'
-                        value={this.state.credentials.username}
+                        name='email'
+                        value={email}
                         onChange={this.handleChanges}
                     />
                     <input
                         type='password'
                         name='password'
-                        value={this.state.credentials.password}
+                        value={password}
                         onChange={this.handleChanges}
                     />
                     <button>
-                        {this.props.loggingIn ? (
+                        {this.props.login ? (
                             '...Logging In'
                         ) : (
                             'Log In'
