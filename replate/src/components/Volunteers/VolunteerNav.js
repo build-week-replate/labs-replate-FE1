@@ -6,12 +6,12 @@ const VolunteerNav = () => {
 
     return (
         <div>
-            < >
+            {/* < >
                 Dashboard
             </>
             <>
                 Available Pickups
-            </>
+            </> */}
         </div>
     )
 

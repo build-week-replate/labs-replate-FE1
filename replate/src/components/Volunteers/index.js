@@ -1,17 +1,15 @@
 import React from 'react'
 
 import VolunteerNav from './VolunteerNav'
+import Requests from '../../components/Requests'
 
 class VolunteerDashboard extends React.Component {
-    // componentDidMount() {
-    //     this.props.getData()
-    // }
 
     render() {
         return (
             <div>
             <VolunteerNav />
-            <h2>This is the volunteer dashboard</h2>
+            <Requests />
             </div>
         )
     }

@@ -38,7 +38,8 @@ class Login extends React.Component {
         event.preventDefault()  
         const user = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            type: this.state.type,
         }    
         console.log(user)  
         axios
@@ -46,10 +47,10 @@ class Login extends React.Component {
         .then(res => {
             const token = res.data.token
             console.log(res)
-            localStorage.setItem('token', JSON.stringify(token))
+            localStorage.setItem('replateToken', JSON.stringify(token).slice(1, -1))
             this.props.refresh()
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err)) 
     }
 
     render() {
