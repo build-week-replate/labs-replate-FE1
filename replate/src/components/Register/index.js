@@ -10,13 +10,14 @@ const Register = props => {
     return (
         <div>
             <div>
-                <img src={require('../../assets/rePlateLogo.png')} alt="rePlate Logo" />
             </div>
             <div>
                 <div>
-                    <VolunteerReg />
+                <h2>Volunteer Registration</h2>
+                <VolunteerReg />
                 </div>
                 <div>
+                <h2>Business Registration</h2>
                 <BusinessReg />
                 </div>
             </div>
