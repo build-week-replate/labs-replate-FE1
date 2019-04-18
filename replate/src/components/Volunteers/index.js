@@ -1,6 +1,6 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 
-import VolunteerNav from './VolunteerNav'
 import Requests from '../../components/Requests'
 
 class VolunteerDashboard extends React.Component {
@@ -8,8 +8,7 @@ class VolunteerDashboard extends React.Component {
     render() {
         return (
             <div>
-            <VolunteerNav />
-            <Requests />
+            <Route path='/requests' component={Requests} />
             </div>
         )
     }

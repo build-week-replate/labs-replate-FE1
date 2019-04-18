@@ -1,40 +1,30 @@
 import React from 'react';
-import axios from 'axios'
+import { Route, Link } from "react-router-dom"
+import Login from './components/Login/Login'
 
 import './App.css';
-import { Route } from 'react-router-dom'
-
-// import VolunteerDashboard from './components/Volunteers'
-import Login from './components/Login'
-// import Register from './components/Register'
-// // import PrivateRoute from './components/PrivateRoute/PrivateRoute'
-// // import Requests from './components/Requests'
-// import SubmitRequest from './components/Businesses/SubmitRequest'
-import View from './Views'
-import VolunteerReg from './components/Register/VolunteerReg'
-
 
 class App extends React.Component {
-  
-
-
 
   render() {
     return (
       <div className="App">
-      <div>
-        <h1>My app</h1>
-        {/* <Register />
-        {/* <PrivateRoute path='/' component={TestComponent} /> */}
-        {/* <SubmitRequest /> */} 
-        <View />
-        <Route path='/login' component={Login} />
-        <VolunteerReg />
-      </div>
+       
+      {/* <button onClick={() => this.props.history.push('/login')}>Click to Login </button> */}
+      <div className='container'>
+       
+        <Link to='/login'>Click to Login</Link>
+    
         
+          <div className='homeContainer'>
+          </div>
+  
+      </div>   
+
+      <Route exact path="/login" component={Login} />
       </div>
     );
   }
 }
 
-export default App;
+export default App

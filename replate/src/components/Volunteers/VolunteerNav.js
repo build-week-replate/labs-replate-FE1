@@ -1,17 +1,15 @@
 import React from 'react'
 
-// import { Route } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import Requests from '../Requests'
 
 const VolunteerNav = () => {
 
     return (
         <div>
-            {/* < >
-                Dashboard
-            </>
-            <>
-                Available Pickups
-            </> */}
+            <NavLink path='/requests' component={Requests}>
+            View Available Requests
+            </NavLink>
         </div>
     )
 
