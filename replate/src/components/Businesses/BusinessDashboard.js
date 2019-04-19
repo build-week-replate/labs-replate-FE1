@@ -1,7 +1,7 @@
 import React, { useContext} from 'react'
 import { Context } from '../context'
 
-import Requests from '../Requests/Requests'
+import BusinessRequests from './BusinessRequests'
 import SubmitRequest from './SubmitRequest';
 
 const BusinessDashboard = () => {
@@ -11,7 +11,7 @@ const BusinessDashboard = () => {
         return (
         <div>
         <SubmitRequest />
-        <Requests />
+        <BusinessRequests />
         </div>
     )
 }

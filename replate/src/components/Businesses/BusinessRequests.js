@@ -1,9 +1,9 @@
 import React from 'react'
 
 import axios from 'axios';
-import Request from './Request'
+import BusinessRequest from './BusinessRequest'
 
-class Requests extends React.Component {
+class BusinessRequests extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -27,9 +27,9 @@ class Requests extends React.Component {
         .catch(err => console.log(err))
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     console.log(this.state.schedules, prevState)
-    // }
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.state.schedules, prevState)
+    }
 
     render() {
         console.log('New one: ', this.state.schedules)
@@ -40,7 +40,7 @@ class Requests extends React.Component {
                {this.state.schedules.map(schedule => {
                    console.log('schedule', schedule)
                    return (
-                   <Request
+                   <BusinessRequest
                    request={schedule.pickup_name}
                    date={schedule.pickup_date}
                    timeExpires={schedule.pickup_time}
@@ -55,4 +55,4 @@ class Requests extends React.Component {
     }
 }
 
-export default Requests
+export default BusinessRequests

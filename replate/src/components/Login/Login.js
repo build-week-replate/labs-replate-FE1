@@ -70,9 +70,7 @@ class Login extends React.Component {
             .then(res => {
                 console.log('This is our Request Response: ', res)
                 this.context.dispatch({ type: 'get_schedules', payload: res.data })
-                this.props.history.push('/dashboard')
               })
-                .catch(err => console.log(err))
         })
         .catch(err => console.log(err)) 
     }

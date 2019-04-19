@@ -1,11 +1,8 @@
-import React, { useContext} from 'react'
-import { Context } from '../context'
+import React from 'react'
 
 import Requests from '../../components/Requests/Requests'
 
 const VolunteerDashboard = () => {
-    const ctx = useContext(Context)
-    console.log(ctx)
         return (
             <div>
             <Requests />

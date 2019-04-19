@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Request = props => {
+    const { id } = props
     console.log('my props', props)
     return (
         <div>
@@ -22,6 +23,9 @@ const Request = props => {
             <p>Already Assigned?
                 {props.taken}
             </p>
+            <button onClick={() => props.deleteRequest(id)}>
+                Delete Request?
+            </button>
         </div>
     )
 }

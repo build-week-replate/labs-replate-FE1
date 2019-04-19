@@ -6,12 +6,12 @@ function reducer(state, action) {
       console.log('Payload: ', action.payload)
       return { ...state, isLoggedIn: true, user: action.payload };
     }
-    case "get_schedules": {
-      return { ...state, isLoggedIn: true, schedules: action.payload };
-    }
-    case 'submit_schedule': {
-      return { ...state, isLoggedIn: true, schedules: action.payload }
-    }
+    // case "get_schedules": {
+    //   return { ...state, isLoggedIn: true, schedules: action.payload };
+    // }
+    // case 'submit_schedule': {
+    //   return { ...state, isLoggedIn: true, schedules: action.payload }
+    // }
     case "logout": {
       return { ...state, isLoggedIn: false };
     }
