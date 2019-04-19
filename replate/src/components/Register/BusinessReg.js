@@ -20,7 +20,7 @@ class BusinessReg extends React.Component {
         .post('https://replate-backend-turcan.herokuapp.com/api/users', {
             email: this.state.email,
             password: this.state.password,
-            type: this.state.type,
+            type: 'company',
             phone,
             name: this.state.name,
 

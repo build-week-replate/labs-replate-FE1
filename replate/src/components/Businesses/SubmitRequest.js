@@ -1,7 +1,6 @@
 import React from 'react'
 
 import axios from 'axios'
-// import Auth from '../../utils/axiosAuth'
 
 class SubmitRequest extends React.Component {
     constructor(props) {

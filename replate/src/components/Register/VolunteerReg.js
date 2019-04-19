@@ -20,7 +20,7 @@ class VolunteerReg extends React.Component {
         .post('https://replate-backend-turcan.herokuapp.com/api/users', {
             email: this.state.email,
             password: this.state.password,
-            type: this.state.type,
+            type: 'volunteer',
             phone,
             name: this.state.name,
 
@@ -34,6 +34,8 @@ class VolunteerReg extends React.Component {
                 name: ''
             })
             localStorage.setItem('replateToken', res.data.token)
+            this.props.history.push('/dashboard')
+            
         })
         .catch(err => console.log(err))
     }

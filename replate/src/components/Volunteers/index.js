@@ -1,17 +1,16 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
+import React, { useContext} from 'react'
+import { Context } from '../context'
 
-import Requests from '../../components/Requests'
+import Requests from '../../components/Requests/Requests'
 
-class VolunteerDashboard extends React.Component {
-
-    render() {
+const VolunteerDashboard = () => {
+    const ctx = useContext(Context)
+    console.log(ctx)
         return (
             <div>
-            <Route path='/requests' component={Requests} />
+            <Requests />
             </div>
         )
-    }
 }
 
 export default VolunteerDashboard

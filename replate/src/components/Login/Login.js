@@ -1,4 +1,5 @@
 import React from 'react'
+import { Context } from '../context'
 
 import axios from 'axios'
 
@@ -20,6 +21,7 @@ const LoginDiv = styled.div`
 `
 
 class Login extends React.Component {
+    static context = Context
     constructor(props) {
         super(props)
         this.state = {
@@ -36,24 +38,47 @@ class Login extends React.Component {
 
     login = event => {
         event.preventDefault()  
+    
+    axios.defaults.baseURL = 'https://replate-backend-turcan.herokuapp.com/api';
+    axios.interceptors.request.use(
+     function(options) {
+       options.headers.authorization = localStorage.getItem('replateToken')
+    
+       return options;
+     },
+     function(error) {
+       // do something with the error
+       return Promise.reject(error);
+     }
+    ); 
+        
         const user = {
             email: this.state.email,
             password: this.state.password,
-            type: this.state.type,
         }    
-        console.log(user)  
+        // console.log(user) 
         axios
-        .post('https://replate-backend-turcan.herokuapp.com/api/users/login', user)
+        .post('/users/login', user)
         .then(res => {
             const token = res.data.token
-            console.log(res)
+            console.log('Login Response: ', res)
+            this.context.dispatch({ type: 'login', payload: res.data.user })
             localStorage.setItem('replateToken', JSON.stringify(token).slice(1, -1))
-            this.props.refresh()
+            
+        }).then(() => {
+            axios.get('/schedules')
+            .then(res => {
+                console.log('This is our Request Response: ', res)
+                this.context.dispatch({ type: 'get_schedules', payload: res.data })
+                this.props.history.push('/dashboard')
+              })
+                .catch(err => console.log(err))
         })
         .catch(err => console.log(err)) 
     }
 
     render() {
+        console.log(this.context)
         const { email, password } = this.state
         return (
             <LoginDiv>
@@ -89,5 +114,7 @@ class Login extends React.Component {
         )
     }
 }
+Login.contextType = Context;
+
 
 export default Login
