@@ -1,0 +1,12 @@
+ axios({
+            method: 'post',
+            url: 'https://replate-backend-turcan.herokuapp.com/api/schedules',
+            headers: {Authorization: replateToken},
+            data: {
+                pickup_name: this.state.pickup_name,
+                pickup_date: this.state.pickup_date,
+                pickup_time: this.state.pickup_time,
+                pickup_comment: this.state.pickup_comment,
+                pickup_additional_comment: this.state.pickup_additional_comment
+            }
+        })
