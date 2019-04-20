@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Dashboard from './components/Dashboard'
-import { BrowserRouter as Router, Route, Links} from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 import './App.css';
 
-// import VolunteerDashboard from './components/Volunteers'
-import Login from './components/Login'
+import HomeView from './Views/HomeView/HomeView'
+import Login from './Views/HomeView/Login'
 import PrivateRoute from './components/PrivateRoute';
 
 class App extends Component {
@@ -14,11 +14,13 @@ class App extends Component {
       <Router>
       <div className="App">
       <div>
-        <h1>My app</h1>
-        <Route path="/login" component={Login} />
-        <PrivateRoute exact path='/protected' component={Dashboard} />
-      </div>
+      <HomeView />
         
+      </div>
+      <div>
+      <Route path="/login" component={Login} />
+        <PrivateRoute exact path='/protected' component={Dashboard} />
+        </div>
       </div>
       </Router>
     );
