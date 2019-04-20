@@ -4,7 +4,7 @@ import {
     // LOGIN_FAILURE,
     REGISTER_START,
     REGISTER_SUCCESS,
-    REGISTER_FAILURE,
+    // REGISTER_FAILURE,
     FETCH_DATA_START,
     FETCH_DATA_SUCCESS,
     FETCH_DATA_FAILURE
@@ -40,7 +40,13 @@ export const reducer = (state = initialState, action) => {
         return {
             ...state,
             error: '',
-            loggingIn: true,
+            loggingIn: false
+        }
+        case REGISTER_SUCCESS:
+        return {
+            ...state,
+            error: '',
+            loggingIn: true
         }
         case FETCH_DATA_START:
         return {

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import Dashboard from './components/Dashboard'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 import './App.css';
 
 import HomeView from './Views/HomeView/HomeView'
 import Login from './Views/HomeView/Login'
-import RegisterStart from './Views/HomeView/RegisterStart'
-import PrivateRoute from './components/PrivateRoute';
+import RegisterStart from './Views/Registration/RegisterStart'
+import PrivateRoute from './components/PrivateRoute'
+// import Dashboard from './Views/Dashboards/Dashboard'
+import BusinessDashboard from './Views/Dashboards/BusinessDashboard';
+import VolunteerRegister from './Views/Registration/VolunteerRegister'
+import BusinessRegister from './Views/Registration/BusinessRegister'
 
 class App extends Component {
   render() {
@@ -21,7 +24,9 @@ class App extends Component {
       <div>
         <Route path="/login" component={Login} />
         <Route path="/register" component={RegisterStart} />
-        <PrivateRoute exact path='/protected' component={Dashboard} />
+        <Route path="/volunteer-registration" component={VolunteerRegister} />
+        <Route path="/business-registration" component={BusinessRegister} />
+        <PrivateRoute exact path='/businesses' component={BusinessDashboard} />
         </div>
       </div>
       </Router>

@@ -14,29 +14,29 @@ class BusinessReg extends React.Component {
         }
     }
 
-    businessRegistration = () => {
-        const phone = parseInt(this.state.phone)
-        axios
-        .post('https://replate-backend-turcan.herokuapp.com/api/users', {
-            email: this.state.email,
-            password: this.state.password,
-            type: 'company',
-            phone,
-            name: this.state.name,
+    // businessRegistration = () => {
+    //     const phone = parseInt(this.state.phone)
+    //     axios
+    //     .post('https://replate-backend-turcan.herokuapp.com/api/users', {
+    //         email: this.state.email,
+    //         password: this.state.password,
+    //         type: 'company',
+    //         phone,
+    //         name: this.state.name,
 
-        })
-        .then(res => {
-            this.setState({
-                email: '',
-                password: '',
-                type: 'company',
-                phone: '',
-                name: ''
-            })
-            localStorage.setItem('token', res.data.token)
-        })
-        .catch(err => console.log(err))
-    }
+    //     })
+    //     .then(res => {
+    //         this.setState({
+    //             email: '',
+    //             password: '',
+    //             type: 'company',
+    //             phone: '',
+    //             name: ''
+    //         })
+    //         localStorage.setItem('token', res.data.token)
+    //     })
+    //     .catch(err => console.log(err))
+    // }
 
     handleChanges = event => {
         this.setState({

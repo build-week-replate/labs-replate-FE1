@@ -99,7 +99,7 @@ class Login extends React.Component {
         event.preventDefault();
         this.props.login(this.state.credentials)
         .then(() => {
-          this.props.history.push('/protected')
+          this.props.history.push('/businesses')
         });
       };
 
