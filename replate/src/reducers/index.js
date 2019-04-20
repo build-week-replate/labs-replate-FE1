@@ -2,18 +2,20 @@ import {
     LOGIN_START,
     LOGIN_SUCCESS,
     // LOGIN_FAILURE,
-    FETCH_AVAILABLEPICKUPS_START,
-    FETCH_AVAILABLEPICKUPS_SUCCESS,
-    FETCH_AVAILABLEPICKUPS_FAILURE
+    FETCH_DATA_START,
+    FETCH_DATA_SUCCESS,
+    FETCH_DATA_FAILURE
 } from '../actions'
 
 const initialState = {
+    email: '',
+    password: '',
     availablePickups: [],
-    getAvailablePickups: false,
+    fetchingData: false,
     error: null,
 }
 
-export const rootReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN_START:
         return {
@@ -29,20 +31,20 @@ export const rootReducer = (state = initialState, action) => {
             error: '',
             loggingIn: false
         }
-        case FETCH_AVAILABLEPICKUPS_START:
+        case FETCH_DATA_START:
         return {
             ...state,
             error: '',
-            getAvailablePickups: true
+            fetchingData: true
         }
-        case FETCH_AVAILABLEPICKUPS_SUCCESS:
+        case FETCH_DATA_SUCCESS:
         return {
             ...state,
             error: '',
-            getAvailablePickups: false,
-            availablePickups: action.payload
+            fetchingData: false,
+            getData: action.payload
         }
-        case FETCH_AVAILABLEPICKUPS_FAILURE:
+        case FETCH_DATA_FAILURE:
         return {
             ...state,
             error: action.payload.data.error,

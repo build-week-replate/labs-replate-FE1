@@ -6,7 +6,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START })
     return axios
-    .post('https://replate-backend-turcan.herokuapp.com/api/login', creds)
+    .post('https://replate-backend-turcan.herokuapp.com/api/users/login', creds)
     .then(res => {
         localStorage.setItem('token', res.data.payload)
         dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload })

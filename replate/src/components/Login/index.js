@@ -6,7 +6,7 @@ import { login } from '../../actions'
 class Login extends React.Component {
     state = {
         credentials: {
-            username: '',
+            email: '',
             password: ''
         }
     }
@@ -21,13 +21,12 @@ class Login extends React.Component {
     }
 
     login = event => {
-        event.preventDefault()
+        event.preventDefault();
         this.props.login(this.state.credentials)
-        //needs logic to determine which dashboard to show, volunteer or business
         .then(() => {
-            this.props.history.push('/protected')
-        })
-    }
+          this.props.history.push('/protected');
+        });
+      };
 
     render() {
         return (
@@ -35,7 +34,7 @@ class Login extends React.Component {
                 <form onSubmit={this.login}>
                     <input
                         type='text'
-                        name='username'
+                        name='email'
                         value={this.state.credentials.username}
                         onChange={this.handleChanges}
                     />
@@ -53,15 +52,17 @@ class Login extends React.Component {
                         )}
                     </button>
                 </form>
+                {this.props.error && <p className="error">{this.props.error}</p>}
             </div>
         )
     }
 }
 
-const mapStateToProps = ({ loggingIn, error }) => ({
-    error,
-    loggingIn
-})
+const mapStateToProps = state => {
+    return {
+        isLoggingIn: state.isLoggingIn
+    }
+}
 
 export default connect(
     mapStateToProps,

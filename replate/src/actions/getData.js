@@ -1,17 +1,18 @@
+import axios from 'axios'
 
-import axiosWithAuth from '../utils/axiosAuth'
-
-export const FETCH_AVAILABLEPICKUPS_START = 'FETCH_AVAILABLEPICKUPS_START'
-export const FETCH_AVAILABLEPICKUPS_SUCCESS = 'FETCH_AVAILABLEPICKUPS_SUCCESS'
-export const FETCH_AVAILABLEPICKUPS_FAILURE = 'FETCH_AVAILABLEPICKUPS_FAILURE'
+export const FETCH_DATA_START = 'FETCH_AVAILABLEPICKUPS_START'
+export const FETCH_DATA_SUCCESS = 'FETCH_AVAILABLEPICKUPS_SUCCESS'
+export const FETCH_DATA_FAILURE = 'FETCH_AVAILABLEPICKUPS_FAILURE'
 export const getData = () => dispatch => {
-    dispatch({ type: FETCH_AVAILABLEPICKUPS_START })
-    axiosWithAuth()
-        .get('https://replate-backend-turcan.herokuapp.com/api/data')
+    dispatch({ type: FETCH_DATA_START })
+    axios
+        .get('https://replate-backend-turcan.herokuapp.com/api/data', {
+            headers: { Authorization: localStorage.getItem('token') }
+        })
         .then(res => {
-            dispatch({ FETCH_AVAILABLEPICKUPS_SUCCESS, payload: res.data.getData })
+            dispatch({ FETCH_DATA_SUCCESS, payload: res.data.getData })
         })
         .catch(err => {
-            dispatch({ type: FETCH_AVAILABLEPICKUPS_FAILURE, payload: err.response})
+            dispatch({ type: FETCH_DATA_FAILURE, payload: err.response})
         })
 }
