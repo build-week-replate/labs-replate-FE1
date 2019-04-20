@@ -1,18 +1,17 @@
 
-// import React from 'react'
+import React from 'react'
 
-// import VolunteerDashboard from '../Volunteers';
-// import BusinessDashboard from '../Businesses/BusinessDashboard';
+import VolunteerDashboard from './VolunteerDashboard';
+import BusinessDashboard from './BusinessDashboard';
 
-// const Dashboard = props => {
-//     const ctx = useContext(Context) 
-//     console.log(ctx)
-    
-//     if (ctx.state.user.type === 'company') {
-//         return <BusinessDashboard />
-//     } else {
-//         return <VolunteerDashboard />
-//     }
-// }
+const Dashboard = props => {
+    const userType = localStorage.getItem('type')
+    console.log(userType)
+    if (userType === 'company') {
+        return <BusinessDashboard />
+    } else {
+        return <VolunteerDashboard />
+    }
+}
 
-// export default Dashboard
+export default Dashboard

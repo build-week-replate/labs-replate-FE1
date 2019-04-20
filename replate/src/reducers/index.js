@@ -7,7 +7,8 @@ import {
     // REGISTER_FAILURE,
     FETCH_DATA_START,
     FETCH_DATA_SUCCESS,
-    FETCH_DATA_FAILURE
+    FETCH_DATA_FAILURE,
+    REGISTER_FAILURE
 } from '../actions/'
 
 const initialState = {
@@ -17,7 +18,8 @@ const initialState = {
     fetchingData: false,
     error: null,
     type: '',
-    id: ''
+    id: '',
+    isRegistering: false
 }
 
 export const reducer = (state = initialState, action) => {
@@ -40,13 +42,24 @@ export const reducer = (state = initialState, action) => {
         return {
             ...state,
             error: '',
-            loggingIn: false
+            fetchingData: false,
+            isRegistering: true,
+            type: '',
+
         }
         case REGISTER_SUCCESS:
         return {
             ...state,
             error: '',
-            loggingIn: true
+            isRegistering: false,
+            fetchingData: true
+        }
+        case REGISTER_FAILURE:
+        return {
+            ...state,
+            error: action.error.response.data.msg,
+            isRegistering: false,
+            fetchingData: false
         }
         case FETCH_DATA_START:
         return {

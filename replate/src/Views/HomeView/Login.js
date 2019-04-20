@@ -99,7 +99,7 @@ class Login extends React.Component {
         event.preventDefault();
         this.props.login(this.state.credentials)
         .then(() => {
-          this.props.history.push('/businesses')
+          this.props.history.push('/dashboard')
         });
       };
 
@@ -142,7 +142,7 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggingIn: state.isLoggingIn
+        isLoggingIn: state.isLoggingIn,
     }
 }
 
