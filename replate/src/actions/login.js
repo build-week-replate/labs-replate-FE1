@@ -9,6 +9,7 @@ export const login = credentials => dispatch => {
     .post('https://replate-backend-turcan.herokuapp.com/api/users/login', credentials)
     .then(res => {
         localStorage.setItem('token', res.data.token)
+        localStorage.setItem('type', res.data.user.type)
         dispatch({ type: LOGIN_SUCCESS, payload: res.data })
     })
     .catch(err => console.log(err))
