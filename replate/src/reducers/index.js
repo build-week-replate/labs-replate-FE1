@@ -2,10 +2,13 @@ import {
     LOGIN_START,
     LOGIN_SUCCESS,
     // LOGIN_FAILURE,
+    REGISTER_START,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE,
     FETCH_DATA_START,
     FETCH_DATA_SUCCESS,
     FETCH_DATA_FAILURE
-} from '../actions'
+} from '../actions/'
 
 const initialState = {
     email: '',
@@ -13,6 +16,8 @@ const initialState = {
     availablePickups: [],
     fetchingData: false,
     error: null,
+    type: '',
+    id: ''
 }
 
 export const reducer = (state = initialState, action) => {
@@ -30,6 +35,12 @@ export const reducer = (state = initialState, action) => {
             ...state,
             error: '',
             loggingIn: false
+        }
+        case REGISTER_START:
+        return {
+            ...state,
+            error: '',
+            loggingIn: true,
         }
         case FETCH_DATA_START:
         return {

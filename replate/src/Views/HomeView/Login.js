@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Route, Router, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { login } from '../../actions/login'
@@ -12,6 +12,9 @@ const LoginForm = styled.div`
     padding: 20px;
     border-radius: 5px;
     margin-top: 60px;
+    -webkit-box-shadow: 0px 0px 28px 8px rgba(0,0,0,0.14);
+    -moz-box-shadow: 0px 0px 28px 8px rgba(0,0,0,0.14);
+    box-shadow: 0px 0px 28px 8px rgba(0,0,0,0.14);
     
     form {
         display: flex;
@@ -46,6 +49,15 @@ const LoginForm = styled.div`
             background-color: #006837;
             border: 2px solid #006837;
             color: #fff;
+            -moz-transform: translate(-2px, -2px);
+            -ms-transform: translate(0, -2px);
+            -o-transform: translate(0, -2px);
+            -webkit-transform: translate(0, -2px);
+            transform: translate(0, -2px);
+            transition: 0.4s;
+            -webkit-box-shadow: 1px 6px 14px -4px rgba(0,0,0,0.28);
+            -moz-box-shadow: 1px 6px 14px -4px rgba(0,0,0,0.28);
+            box-shadow: 1px 6px 14px -4px rgba(0,0,0,0.28);
         }
     }
 
@@ -119,7 +131,7 @@ class Login extends React.Component {
                         )}
                     </button>
                     <p>
-                        Not a member?  <Link to='/register'>Please Register!</Link>
+                        Not a member?  <Link to='/register'>Register Now!</Link>
                     </p>
                 </form>
                 {this.props.error && <p className="error">{this.props.error}</p>}
